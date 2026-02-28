@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # 📘 Virtualization and Cloud Computing Assignment 3
 
 ---
@@ -17,9 +16,7 @@ Virtualization and Cloud Computing
 
 ## 🎯 Objective
 
-This assignment demonstrates the implementation of a hybrid virtualization system where a Local Ubuntu Virtual Machine continuously monitors CPU and memory utilization. When resource usage exceeds 75%, the system automatically provisions a new Virtual Machine on Google Cloud Platform (GCP) and deploys a Flask-based web application.
-
-The objective is to simulate real-world cloud elasticity by integrating local virtualization with automated public cloud scaling.
+This assignment demonstrates the implementation of a hybrid virtualization system where a Local Ubuntu Virtual Machine continuously monitors CPU and memory utilization. When resource usage exceeds 75%, the system automatically provisions a new Virtual Machine on Google Cloud Platform (GCP) and deploys a Flask-based web application. The objective is to simulate real-world cloud elasticity by integrating local virtualization with automated public cloud scaling.
 
 ---
 
@@ -42,7 +39,7 @@ The objective is to simulate real-world cloud elasticity by integrating local vi
 |-----------|------|------------|
 | Local VM | Monitoring Node | Ubuntu 24.04 on VirtualBox |
 | Monitoring Script | Resource Checker | Bash Script |
-| GCP VM | Scaled Application Server | Ubuntu 22.04 |
+| GCP VM | Scaled Application Server | Ubuntu 24.04 |
 | Firewall Rule | Network Security | TCP 80, SSH 22 |
 | SSH Key | Secure Authentication | RSA 4096-bit |
 
@@ -73,7 +70,7 @@ The Local VM acts as the monitoring controller, while the GCP VM acts as the dyn
 
 ## 🖼 Architecture Diagram
 
-![Hybrid Architecture](architecture-diagram.png)
+![Hybrid Architecture](Aryan Baranwal (M25CSE035) VCC Assignment 3.png)
 
 Figure: Hybrid auto-scaling architecture from Local VM to Google Cloud based on CPU/RAM threshold.
 
@@ -82,28 +79,28 @@ Figure: Hybrid auto-scaling architecture from Local VM to Google Cloud based on 
 ## 🚀 Implementation Overview
 
 ### Local Setup
-
+```bash
 sudo apt update && sudo apt upgrade -y  
 sudo apt install -y curl git bc stress-ng htop python3-pip  
 pip3 install flask  
-
+```
 ---
 
 ### Google Cloud CLI Setup
-
+```bash
 curl https://sdk.cloud.google.com | bash  
 exec -l \$SHELL  
 gcloud init  
 gcloud config set project YOUR_PROJECT_ID  
-
+```
 ---
 
 ### Firewall Configuration
-
+```bash
 gcloud compute firewall-rules create allow-http \\
 --allow tcp:80 \\
 --target-tags=http-server  
-
+```
 ---
 
 ## 📂 Repository Structure
@@ -112,9 +109,9 @@ assignment3-hybrid-autoscaling/
 │── app.py  
 │── cpu_monitor.sh  
 │── migrate_to_gcp.sh  
-│── terminate_gcp_vm.sh  
+│── terminate_gcp.sh  
 │── README.md  
-│── architecture-diagram.png  
+│── Aryan Baranwal (M25CSE035) VCC Assignment 3.png  
 │── Assignment3_Report.pdf  
 
 ---
@@ -122,18 +119,18 @@ assignment3-hybrid-autoscaling/
 ## 🔗 Application Endpoints
 
 ### Local Endpoint
-
+```bash
 http://<LOCAL_VM_IP>:5000  
-
+```
 Response:  
 LOCAL FLASK APP RUNNING  
 
 ---
 
 ### Cloud Endpoint (After Scaling)
-
+```bash
 http://<EXTERNAL_IP>  
-
+```
 Response:  
 AUTO SCALED FLASK APP ON GCP  
 
@@ -151,9 +148,9 @@ AUTO SCALED FLASK APP ON GCP
 ---
 
 ## 🧪 Load Testing
-
+```bash
 stress-ng --cpu \$(nproc) --cpu-load 90 --timeout 120s  
-
+```
 ---
 
 ## 📄 Assignment Report (PDF)
