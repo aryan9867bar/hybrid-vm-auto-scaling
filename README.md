@@ -70,7 +70,7 @@ The Local VM acts as the monitoring controller, while the GCP VM acts as the dyn
 
 ## 🖼 Architecture Diagram
 
-![Hybrid Architecture](Aryan Baranwal (M25CSE035) VCC Assignment 3.png)
+![Hybrid Architecture](Aryan%20Baranwal%20(M25CSE035)%20VCC%20Assignment%203.png)
 
 Figure: Hybrid auto-scaling architecture from Local VM to Google Cloud based on CPU/RAM threshold.
 
