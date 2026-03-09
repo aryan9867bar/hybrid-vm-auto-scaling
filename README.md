@@ -112,7 +112,7 @@ assignment3-hybrid-autoscaling/
 │── terminate_gcp.sh  
 │── README.md  
 │── Aryan Baranwal (M25CSE035) VCC Assignment 3.png  
-│── Assignment3_Report.pdf  
+│── Aryan Baranwal VCC Assignment 3.pdf 
 
 ---
 
@@ -154,8 +154,9 @@ stress-ng --cpu \$(nproc) --cpu-load 90 --timeout 120s
 ---
 
 ## 📄 Assignment Report (PDF)
+A detailed assignment report is included:
 
-Click here to view the Assignment 3 Report: Assignment3_Report.pdf  
+📘 [Click here to view the Assignment Report](Aryan%20Baranwal%20VCC%20Assignment%203.pdf)
 
 ---
 
